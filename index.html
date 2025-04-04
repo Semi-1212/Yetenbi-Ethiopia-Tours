@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Yetenbi Ethiopia Tours</title>
+    <link rel="icon" type="image/png" href="images/logo1.png"
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Top Navbar -->
+    <div class="top-navbar">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="top-nav-contact">
+                        <a href="tel:+251913271706"><i class="fas fa-phone-alt"></i> +251 913 271706</a>
+                        <a href="mailto:info@yetenbitours.com"><i class="fas fa-envelope"></i> info@yetenbitours.com</a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="top-nav-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-telegram-plane"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navbar -->
+    <nav class="navbar navbar-expand-lg main-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <img src="images/logo1.png" alt="Yetenbi Ethiopia Tours">
+                Yetenbi
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about-us">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="toursDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Tours
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="toursDropdown">
+                            <li><a class="dropdown-item" href="tours.html">All Tours</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="historic-route.html">Historic Route</a></li>
+                            <li><a class="dropdown-item" href="danakil-depression.html">Danakil Depression</a></li>
+                            <li><a class="dropdown-item" href="omo-valley.html">Omo Valley</a></li>
+                            <li><a class="dropdown-item" href="simien-mountains.html">Simien Mountains</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="destinations.html">Destinations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#blog">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="nav-link btn-book" href="#contact">Book Now</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <a href="javascript:void(0)" class="close-btn" id="closeSidebar">&times;</a>
+        <a href="#home" class="active">Home</a>
+        <a href="#about-us">About Us</a>
+        <a href="#" class="dropdown-btn">Tours <i class="fas fa-chevron-down float-end mt-1"></i></a>
+        <div class="dropdown-container">
+            <a href="tours">All Tours</a>
+            <a href="historic-route.html">Historic Route</a>
+            <a href="danakil-depression.html">Danakil Depression</a>
+            <a href="omo-valley.html">Omo Valley</a>
+            <a href="simien-mountains.html">Simien Mountains</a>
+        </div>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="btn-book mt-3 text-center">Book Now</a>
+    </div>
+
+ 
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Mobile sidebar functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const closeSidebar = document.getElementById('closeSidebar');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                sidebar.style.width = '280px';
+                overlay.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+            
+            closeSidebar.addEventListener('click', () => {
+                sidebar.style.width = '0';
+                overlay.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            overlay.addEventListener('click', () => {
+                sidebar.style.width = '0';
+                overlay.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Mobile dropdown functionality
+            const dropdownBtns = document.getElementsByClassName('dropdown-btn');
+            
+            for (let i = 0; i < dropdownBtns.length; i++) {
+                dropdownBtns[i].addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const dropdownContent = this.nextElementSibling;
+                    
+                    if (dropdownContent.style.display === 'block') {
+                        dropdownContent.style.display = 'none';
+                    } else {
+                        dropdownContent.style.display = 'block';
+                    }
+                });
+            }
+            
+            // Make navbar solid when scrolled
+            window.addEventListener('scroll', function() {
+                const mainNavbar = document.querySelector('.main-navbar');
+                if (window.scrollY > 50) {
+                    mainNavbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.15)';
+                } else {
+                    mainNavbar.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
+                }
+            });
+            
+            // Close sidebar when clicking on a link (except dropdown toggles)
+            const sidebarLinks = document.querySelectorAll('.sidebar a:not(.dropdown-btn)');
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    sidebar.style.width = '0';
+                    overlay.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                });
+            });
+        });
+    </script>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <!-- Remove the overlay div - we'll handle this with CSS -->
+    <div class="container text-center">
+        <h1>Discover Ethiopia with Us</h1>
+        <p>Your adventure starts here. Explore amazing destinations!</p>
+        <a href="#tours" class="btn btn-light btn-lg">View Tours</a>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <button class="slider-nav prev">&#10094;</button>
+    <button class="slider-nav next">&#10095;</button>
+
+    <!-- Dots Navigation -->
+    <div class="slider-dots">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+    <script>
+        // Hero Slider Functionality
+        const hero = document.querySelector('.hero');
+        const dots = document.querySelectorAll('.dot');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        
+        const images = [
+            'images/image1.jpg',
+            'images/image2.jpg',
+            'images/cbe.avif'
+        ];
+        
+        let currentIndex = 0;
+        
+        // Initialize slider
+        function initSlider() {
+            // Set first image as default
+            hero.style.backgroundImage = `url('${images[0]}')`;
+            dots[0].classList.add('active');
+            
+            // Add event listeners
+            prevBtn.addEventListener('click', prevSlide);
+            nextBtn.addEventListener('click', nextSlide);
+            
+            // Add click events for dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    goToSlide(index);
+                });
+            });
+            
+            // Auto slide every 5 seconds
+            setInterval(nextSlide, 5000);
+        }
+        
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateSlider();
+        }
+        
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateSlider();
+        }
+        
+        function goToSlide(index) {
+            currentIndex = index;
+            updateSlider();
+        }
+        
+        function updateSlider() {
+            hero.style.backgroundImage = `url('${images[currentIndex]}')`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+        
+        // Initialize slider when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initSlider);
+        </script>
+</section>
+
+<!--about us section-->
+<section id="about-us">
+    <div class="about-container">
+        <!-- Left Side: Tour Agency Description -->
+        <div class="about-content">
+            <h2 class="about-title">Yetnbi Ethiopia Tour</h2>
+            <p class="about-text">
+                <em>"Yetnbi"</em> means <strong>"Welcome"</strong> in Gurage, and that's exactly how we greet every traveler to our beautiful country. 
+                We specialize in authentic Ethiopian experiences that connect you with our ancient history, vibrant cultures, and breathtaking landscapes.
+            </p>
+            <p class="about-text">
+                Founded in Addis Ababa, we're proud to be 100% Ethiopian-owned, offering insider access to hidden gems beyond the usual tourist trails. 
+                From the rock-hewn churches of Lalibela to the tribes of the Omo Valley, we bring Ethiopia's wonders to life.
+            </p>
+            <a href="#tours" class="about-btn">Discover Ethiopia</a>
+        </div>
+
+        <!-- Right Side: Ethiopian Travel Features -->
+        <div class="about-features">
+            <div class="features-card">
+                <h3 class="features-title">Why Tour With Us?</h3>
+                
+                <div class="ethiopian-feature">
+                    <img src="images/tea-cup.png" alt="Coffee Ceremony" class="feature-icon">
+                    <div>
+                        <h4>Authentic Experiences</h4>
+                        <p>Participate in traditional coffee ceremonies and share meals with local families</p>
+                    </div>
+                </div>
+                
+                <div class="ethiopian-feature">
+                    <img src="images/travel-guide.png" alt="Local Guides" class="feature-icon">
+                    <div>
+                        <h4>Local Experts</h4>
+                        <p>Our guides speak Amharic and local languages for deeper connections</p>
+                    </div>
+                </div>
+                
+                <div class="ethiopian-feature">
+                    <img src="images/love.png" alt="Community Support" class="feature-icon">
+                    <div>
+                        <h4>Community Impact</h4>
+                        <p>15% of profits support rural schools and women's cooperatives</p>
+                    </div>
+                </div>
+                
+                <p class="cultural-note">
+                    <i class="fas fa-hand-holding-heart"></i> We follow <strong>አንድነት</strong> (unity) principles - ensuring tourism benefits all Ethiopians
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Interactive Map Section -->
+<section id="map-section" class="py-5">
+    <div class="container text-center">
+        <h2 class="title">Explore Addis Ababa</h2>
+        <p class="subtitle">Click on the markers to explore top attractions.</p>
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Google Maps API & Script -->
+<script>
+    function initMap() {
+        var addisAbaba = { lat: 9.03, lng: 38.74 };
+    var map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 13,
+        center: addisAbaba,
+        minZoom: 12, // Prevents zooming too far out
+        maxZoom: 18, // Allows zooming in but not too much
+        gestureHandling: "none", // Disables scroll zoom
+        zoomControl: true, // Enables zoom control buttons
+        restriction: { // Restrict the map to Addis Ababa
+            latLngBounds: {
+                north: 9.12,
+                south: 8.95,
+                east: 38.85,
+                west: 38.65
+            },
+            strictBounds: true
+        },
+        styles: [
+            { elementType: "geometry", stylers: [{ color: "#e9e5dc" }] },
+            { elementType: "labels.text.fill", stylers: [{ color: "#3e2723" }] },
+            { elementType: "labels.text.stroke", stylers: [{ color: "#fafafa" }] },
+            { featureType: "poi.park", elementType: "geometry", stylers: [{ color: "#c5e1a5" }] }
+        ]
+    });
+
+        // Locations with Custom Icons
+        var locations = [
+            { 
+                name: "National Museum of Ethiopia", lat: 9.038, lng: 38.761, 
+                info: "Home of 'Lucy', one of the oldest human fossils.",
+                image: "images/national-museum.jpg",
+                icon: "icons/museum.png"
+            },
+            { 
+                name: "Merkato Market", lat: 9.043, lng: 38.698, 
+                info: "Africa's largest open-air market with vibrant local trade.",
+                image: "images/merkato.jpg",
+                icon: "icons/market.png"
+            },
+            { 
+                name: "Holy Trinity Cathedral", lat: 9.035, lng: 38.759, 
+                info: "A stunning historical church with unique architecture.",
+                image: "images/holy-trinity.jpg",
+                icon: "icons/church.png"
+            },
+            { 
+                name: "Entoto Park", lat: 9.102, lng: 38.729, 
+                info: "A scenic park with breathtaking views and hiking trails.",
+                image: "images/entoto.jpg",
+                icon: "icons/park.png"
+            },
+            { 
+                name: "Red Terror Martyrs' Memorial Museum", lat: 9.016, lng: 38.750, 
+                info: "A museum commemorating victims of the Derg regime.",
+                image: "images/redterror.jpg",
+                icon: "icons/museum.png"
+            },
+            { 
+                name: "Unity Park", lat: 9.015, lng: 38.758, 
+                info: "A historical and recreational park with cultural exhibits.",
+                image: "images/unity-park.jpg",
+                icon: "icons/park.png"
+            },
+            { 
+                name: "Meskel Square", lat: 9.018, lng: 38.751, 
+                info: "A large public square, famous for Meskel celebrations.",
+                image: "images/meskel-square.jpg",
+                icon: "icons/landmark.png"
+            },
+            { 
+                name: "Zoma Museum", lat: 9.002, lng: 38.738, 
+                info: "An eco-friendly art museum showcasing Ethiopian culture.",
+                image: "images/zoma-museum.jpg",
+                icon: "icons/museum.png"
+            },
+            { 
+                name: "Addis Ababa Museum", lat: 9.029, lng: 38.759, 
+                info: "A museum showcasing Addis Ababa's rich history and culture.",
+                image: "images/addis-ababa-museum.jpg",
+                icon: "icons/museum.png"
+            }
+        ];
+
+        // Adding Custom Markers with Animation
+        locations.forEach(function (place) {
+        var marker = new google.maps.Marker({
+            position: { lat: place.lat, lng: place.lng },
+            map: map,
+            title: place.name,
+            icon: {
+                url: place.icon,
+                scaledSize: new google.maps.Size(40, 40)
+            },
+            animation: google.maps.Animation.DROP
+        });
+
+        var infoWindow = new google.maps.InfoWindow({
+            content: `
+                <div class="info-window">
+                    <img src="${place.image}" alt="${place.name}" class="info-img">
+                    <h5>${place.name}</h5>
+                    <p>${place.info}</p>
+                </div>
+            `
+        });
+
+        marker.addListener("click", function () {
+            infoWindow.open(map, marker);
+            map.panTo(marker.getPosition());
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+            setTimeout(() => marker.setAnimation(null), 1500);
+            });
+        });
+    }
+</script>
+<!-- Load Google Maps API -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYOqdy7-yvM-yvpborjiUdeKh3GakDywA&callback=initMap"></script>
+
+
+<!-- Tours Section -->
+<section id="tours" class="container my-5">
+    <h2 class="text-center section-title">Explore Addis Ababa</h2>
+    <p class="text-center section-subtitle">Discover the rich history, culture, and beauty of Ethiopia's capital.</p>
+
+    <div class="row">
+        <!-- Tour 1: National Museum -->
+        <div class="col-md-4">
+            <div class="tour-card">
+                <img src="images/addis-ababa-museum.jpg" class="tour-img" alt="National Museum">
+                <div class="tour-content">
+                    <h5 class="tour-title">National Museum</h5>
+                    <p class="tour-text">Home to the famous <strong>Lucy fossil</strong>, this museum showcases Ethiopia’s ancient and modern artifacts, telling the rich story of its history.</p>
+                    <a href="#" class="tour-btn">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tour 2: Entoto Park -->
+        <div class="col-md-4">
+            <div class="tour-card">
+                <img src="images/entoto.jpg" class="tour-img" alt="Entoto Park">
+                <div class="tour-content">
+                    <h5 class="tour-title">Entoto Park</h5>
+                    <p class="tour-text">Located on the city's highest peak, this park offers breathtaking <strong>views, hiking trails, and cultural exhibits</strong>.</p>
+                    <a href="#" class="tour-btn">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tour 3: Merkato Market -->
+        <div class="col-md-4">
+            <div class="tour-card">
+                <img src="images/merkato.jpg" class="tour-img" alt="Merkato Market">
+                <div class="tour-content">
+                    <h5 class="tour-title">Merkato Market</h5>
+                    <p class="tour-text">Experience the vibrant and colorful atmosphere of <strong>Africa’s largest open-air market</strong>, where you can shop for local goods and souvenirs.</p>
+                    <a href="#" class="tour-btn">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tour 4: Holy Trinity Cathedral -->
+        <div class="col-md-4">
+            <div class="tour-card">
+                <img src="images/holy-trinity.jpg" class="tour-img" alt="Holy Trinity Cathedral">
+                <div class="tour-content">
+                    <h5 class="tour-title">Holy Trinity Cathedral</h5>
+                    <p class="tour-text">This <strong>majestic church</strong> features stunning stained-glass windows and is the final resting place of Emperor Haile Selassie.</p>
+                    <a href="#" class="tour-btn">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tour 5: Red Terror Museum -->
+        <div class="col-md-4">
+            <div class="tour-card">
+                <img src="images/redterror.jpg" class="tour-img" alt="Red Terror Martyrs' Museum">
+                <div class="tour-content">
+                    <h5 class="tour-title">Red Terror Museum</h5>
+                    <p class="tour-text">A museum dedicated to the victims of Ethiopia’s <strong>Red Terror period</strong>, showcasing historical artifacts and personal stories.</p>
+                    <a href="#" class="tour-btn">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tour 6: Unity Park -->
+        <div class="col-md-4">
+            <div class="tour-card">
+                <img src="images/unity-park.jpg" class="tour-img" alt="Unity Park">
+                <div class="tour-content">
+                    <h5 class="tour-title">Unity Park</h5>
+                    <p class="tour-text">Located at the Grand Palace, Unity Park highlights <strong>Ethiopia’s cultural diversity</strong> with exhibits, gardens, and historical sites.</p>
+                    <a href="#" class="tour-btn">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Updated Blog Section HTML -->
+<!-- Blog Section -->
+<section id="blog">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Discover Addis Ababa</h2>
+            <p class="section-subtitle">Stories & Experiences from Ethiopia's Capital</p>
+            <div class="header-divider"></div>
+        </div>
+
+        <div class="blog-grid" id="blogContainer">
+            <!-- Blog Post 1 -->
+            <article class="blog-card">
+                <div class="card-header">
+                    <img src="images/image1.jpg" alt="Entoto Park" class="blog-img">
+                    <span class="post-category">Nature</span>
+                    <span class="post-date">May 15, 2023</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="post-title">A Day at Entoto Park</h3>
+                    <div class="post-content">
+                        <p class="post-excerpt">Escape the city's hustle and enjoy breathtaking views at Addis Ababa's beautiful highland park.</p>
+                        <div class="full-content">
+                            <p>The park offers numerous hiking trails through lush vegetation, with panoramic views of Addis Ababa. At 3,000 meters above sea level, it's the perfect escape from the city heat.</p>
+                            <ul>
+                                <li>Open daily from 6am to 6pm</li>
+                                <li>Best time to visit: Morning hours</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="read-more-btn" aria-expanded="false">
+                        <span class="btn-text"></span>
+                        <span class="arrow-icon">↓</span>
+                    </button>
+                    <div class="post-meta">
+                        <span class="author"><i class="fas fa-user"></i> Selam</span>
+                        <span class="comments"><i class="fas fa-comment"></i> 3</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Blog Post 2 -->
+            <article class="blog-card">
+                <div class="card-header">
+                    <img src="images/image2.jpg" alt="National Museum" class="blog-img">
+                    <span class="post-category">History</span>
+                    <span class="post-date">June 2, 2023</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="post-title">Exploring the National Museum</h3>
+                    <div class="post-content">
+                        <p class="post-excerpt">Meet 'Lucy,' the world's most famous fossil at this must-visit cultural institution.</p>
+                        <div class="full-content">
+                            <p>The National Museum of Ethiopia houses the 3.2 million-year-old remains of Lucy, along with other archaeological treasures. The museum is divided into four main sections:</p>
+                            <ol>
+                                <li>Paleontology section with fossil displays</li>
+                                <li>Prehistoric and ancient artifacts</li>
+                                <li>Ethnographic exhibits</li>
+                                <li>Modern art gallery</li>
+                            </ol>
+                            <p>Guided tours are available in multiple languages.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="read-more-btn" aria-expanded="false">
+                        <span class="btn-text"></span>
+                        <span class="arrow-icon">↓</span>
+                    </button>
+                    <div class="post-meta">
+                        <span class="author"><i class="fas fa-user"></i> Tomas</span>
+                        <span class="comments"><i class="fas fa-comment"></i> 7</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Blog Post 3 -->
+            <article class="blog-card">
+                <div class="card-header">
+                    <img src="images/image4.png" alt="Merkato Market" class="blog-img">
+                    <span class="post-category">Culture</span>
+                    <span class="post-date">June 18, 2023</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="post-title">Shopping at Merkato</h3>
+                    <div class="post-content">
+                        <p class="post-excerpt">Navigate the largest open-air market in Africa with vibrant stalls.</p>
+                        <div class="full-content">
+                            <p>Merkato is spread over several square kilometers with distinct sections:</p>
+                            <ul>
+                                <li>Spice market with aromatic Ethiopian spices</li>
+                                <li>Textile and clothing section</li>
+                                <li>Traditional crafts and souvenirs</li>
+                                <li>Fresh produce and coffee beans</li>
+                            </ul>
+                            <p><strong>Tips for visitors:</strong> Arrive early, bring small bills, and be prepared to bargain.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="read-more-btn" aria-expanded="false">
+                        <span class="btn-text"></span>
+                        <span class="arrow-icon">↓</span>
+                    </button>
+                    <div class="post-meta">
+                        <span class="author"><i class="fas fa-user"></i> Amina</span>
+                        <span class="comments"><i class="fas fa-comment"></i> 5</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Hidden Blog Post 4 -->
+            <article class="blog-card hidden-post">
+                <div class="card-header">
+                    <img src="images/image10.jpg" alt="Addis Nightlife" class="blog-img">
+                    <span class="post-category">Nightlife</span>
+                    <span class="post-date">July 5, 2023</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="post-title">Addis Ababa After Dark</h3>
+                    <div class="post-content">
+                        <p class="post-excerpt">Experience the vibrant nightlife from jazz clubs to traditional music venues.</p>
+                        <div class="full-content">
+                            <p>Addis comes alive at night with diverse entertainment options:</p>
+                            <ul>
+                                <li><strong>Jazz clubs:</strong> Jazzamba Lounge, Mama's Kitchen</li>
+                                <li><strong>Traditional music:</strong> Habesha Cultural Restaurant</li>
+                                <li><strong>Modern clubs:</strong> Illusion, Gaslight</li>
+                                <li><strong>Rooftop bars:</strong> Skyline Hotel, The Roof</li>
+                            </ul>
+                            <p>Most venues are open until 2am on weekends.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="read-more-btn" aria-expanded="false">
+                        <span class="btn-text"></span>
+                        <span class="arrow-icon">↓</span>
+                    </button>
+                    <div class="post-meta">
+                        <span class="author"><i class="fas fa-user"></i> Dawit</span>
+                        <span class="comments"><i class="fas fa-comment"></i> 12</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Hidden Blog Post 5 -->
+            <article class="blog-card hidden-post">
+                <div class="card-header">
+                    <img src="images/image9.jpg" alt="Ethiopian Cuisine" class="blog-img">
+                    <span class="post-category">Food</span>
+                    <span class="post-date">July 12, 2023</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="post-title">A Taste of Ethiopia</h3>
+                    <div class="post-content">
+                        <p class="post-excerpt">Discover the rich flavors of traditional Ethiopian cuisine in Addis' best restaurants.</p>
+                        <div class="full-content">
+                            <p>Must-try dishes in Addis Ababa:</p>
+                            <ul>
+                                <li><strong>Injera:</strong> The spongy sourdough flatbread</li>
+                                <li><strong>Doro Wat:</strong> Spicy chicken stew</li>
+                                <li><strong>Kitfo:</strong> Minced raw beef delicacy</li>
+                                <li><strong>Tibs:</strong> Sauteed meat dishes</li>
+                            </ul>
+                            <p>Top restaurants include Yod Abyssinia, 2000 Habesha, and Totot Traditional Restaurant.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="read-more-btn" aria-expanded="false">
+                        <span class="btn-text"></span>
+                        <span class="arrow-icon">↓</span>
+                    </button>
+                    <div class="post-meta">
+                        <span class="author"><i class="fas fa-user"></i> Helen</span>
+                        <span class="comments"><i class="fas fa-comment"></i> 8</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <div class="text-center">
+            <button id="viewAllBtn" class="view-all-btn">View All Blog Posts</button>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="container my-5">
+    <div class="contact-container">
+        <!-- Left Side: Contact Form -->
+        <form class="contact-form" id="contact-form">
+            <h2>Send Us A Message</h2>
+            
+            <label for="name">Name</label>
+            <input type="text" id="name" name="Name" placeholder="Enter your name" required>
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" name="Email" placeholder="Enter your email" required>
+            
+            <label for="message">Message</label>
+            <textarea id="message" name="Message" placeholder="Enter your message" required></textarea>
+            
+            <button type="submit" class="btn-hero">Send Message</button>
+            
+            <div id="form-message"></div>
+        </form>
+        
+        <!-- Right Side: Contact Information -->
+        <div class="contact-info">
+            <h2>Get In Touch</h2>
+            <p><strong>Address</strong> addisAbaba, Ethiopia</p>
+            <p><strong>Email</strong><br> alifabdurahman@gmail.com</p>
+            <p><strong>Phone</strong> +251 913271706</p>
+            <p><strong>WhatsApp</strong> 
+                <a href="https://wa.me/251913271706?text=Hello%20from%20your%20website%2C%20I%20have%20a%20question%20about..." 
+                   class="whatsapp-link" 
+                   target="_blank">
+                    +251 913 271 706 <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            </p>
+            
+            <div class="social-section">
+                <p><strong>Follow Us</strong></p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/yourpage" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://twitter.com/yourhandle" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://www.instagram.com/youraccount" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://t.me/yourchannel" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // Contact Form Submission
+    document.addEventListener('DOMContentLoaded', function() {
+        const contactForm = document.getElementById('contact-form');
+        const formMessage = document.getElementById('form-message');
+        
+        // Replace with your actual Google Apps Script URL
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyJ8lAMjDnjKGG-9k5zgUcYAJKqp5CfemQwBf9G7bWVZNq_LQM4ldc7zEKgTOQliHcpKA/exec';
+        
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalBtnText = submitBtn.textContent;
+                
+                // Show loading state
+                submitBtn.innerHTML = '<span class="btn-spinner"></span> Sending...';
+                submitBtn.disabled = true;
+                formMessage.style.display = 'none';
+                
+                fetch(scriptURL, { 
+                    method: 'POST', 
+                    body: new FormData(contactForm)
+                })
+                .then(response => {
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    return response.json();
+                })
+                .then(data => {
+                    // Success message
+                    formMessage.textContent = '✓ Message sent successfully! We will contact you soon.';
+                    formMessage.className = 'success';
+                    formMessage.style.display = 'block';
+                    contactForm.reset();
+                })
+                .catch(error => {
+                    // Error message
+                    formMessage.textContent = '✗ Error sending message. Please try again or contact us directly.';
+                    formMessage.className = 'error';
+                    formMessage.style.display = 'block';
+                    console.error('Error!', error);
+                })
+                .finally(() => {
+                    submitBtn.textContent = originalBtnText;
+                    submitBtn.disabled = false;
+                    
+                    // Hide message after 5 seconds
+                    setTimeout(() => {
+                        formMessage.style.display = 'none';
+                    }, 5000);
+                });
+            });
+        }
+    });
+    </script>
+
+    <style>
+    /* Additional Styles for Form Functionality */
+    #form-message {
+        display: none;
+        padding: 12px;
+        margin-top: 15px;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 14px;
+        transition: all 0.3s ease;
+    }
+
+    #form-message.success {
+        background: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+    }
+
+    #form-message.error {
+        background: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+    }
+
+    .btn-spinner {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border: 2px solid rgba(255,255,255,0.3);
+        border-radius: 50%;
+        border-top-color: white;
+        animation: spin 1s ease-in-out infinite;
+        margin-right: 8px;
+        vertical-align: middle;
+    }
+
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+    </style>
+</section>
+
+<!-- Footer -->
+<footer class="footer-section">
+    <!-- Background overlay for better readability -->
+    <div class="footer-overlay"></div>
+    
+    <div class="container">
+        <div class="footer-content">
+            <div class="row g-4">
+                <!-- Company Info -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-about">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="images/logo1.png" alt="Yetenbi Ethiopia Tours" class="footer-logo me-3">
+                            <h3 class="text-uppercase fw-bold mb-0">Yetenbi Ethiopia Tours</h3>
+                        </div>
+                        <p class="mb-3">Your trusted travel partner for discovering the rich culture and breathtaking landscapes of Ethiopia.</p>
+                        <div class="footer-newsletter">
+                            <h6 class="mb-2">Subscribe to our newsletter</h6>
+                            <form class="d-flex">
+                                <input type="email" class="form-control rounded-0" placeholder="Your email">
+                                <button type="submit" class="btn btn-primary rounded-0">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-links">
+                        <h5 class="text-uppercase fw-bold mb-4">Explore</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="#home" class="text-decoration-none d-block py-1">Home</a></li>
+                            <li class="mb-2"><a href="#tours" class="text-decoration-none d-block py-1">Tours</a></li>
+                            <li class="mb-2"><a href="#map" class="text-decoration-none d-block py-1">Destinations</a></li>
+                            <li class="mb-2"><a href="#about-us" class="text-decoration-none d-block py-1">About Us</a></li>
+                            <li class="mb-2"><a href="blog" class="text-decoration-none d-block py-1">Travel Blog</a></li>
+                            <li class="mb-2"><a href="contact" class="text-decoration-none d-block py-1">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-contact">
+                        <h5 class="text-uppercase fw-bold mb-4">Contact Us</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-3 d-flex">
+                                <i class="fas fa-map-marker-alt me-3 mt-1"></i>
+                                <span>Addis Ababa, Ethiopia</span>
+                            </li>
+                            <li class="mb-3 d-flex">
+                                <i class="fas fa-phone-alt me-3 mt-1"></i>
+                                <a href="tel:+251913271706" class="text-decoration-none">+251 913271706</a>
+                            </li>
+                            <li class="mb-3 d-flex">
+                                <i class="fas fa-envelope me-3 mt-1"></i>
+                                <a href="mailto:info@yetenbitours.com" class="text-decoration-none">info@yetenbitours.com</a>
+                            </li>
+                            <li class="mb-3 d-flex">
+                                <i class="fas fa-clock me-3 mt-1"></i>
+                                <span>Mon-Fri: 8:30AM - 5:30PM</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Popular Tours -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-tours">
+                        <h5 class="text-uppercase fw-bold mb-4">Popular Tours</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="#" class="text-decoration-none d-block py-1">Historic Route</a></li>
+                            <li class="mb-2"><a href="#" class="text-decoration-none d-block py-1">Danakil Depression</a></li>
+                            <li class="mb-2"><a href="#" class="text-decoration-none d-block py-1">Omo Valley Tribes</a></li>
+                            <li class="mb-2"><a href="#" class="text-decoration-none d-block py-1">Simien Mountains</a></li>
+                            <li class="mb-2"><a href="#" class="text-decoration-none d-block py-1">Addis Ababa City Tour</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <hr class="footer-divider my-4">
+
+            <div class="row align-items-center">
+                <!-- Social Media -->
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <div class="footer-social">
+                        <span class="me-3">Follow us:</span>
+                        <a href="https://facebook.com/yetenbitours" target="_blank" rel="noopener noreferrer" class="social-icon me-2">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://twitter.com/yetenbitours" target="_blank" rel="noopener noreferrer" class="social-icon me-2">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://instagram.com/yetenbitours" target="_blank" rel="noopener noreferrer" class="social-icon me-2">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://t.me/yetenbitours" target="_blank" rel="noopener noreferrer" class="social-icon me-2">
+                            <i class="fab fa-telegram-plane"></i>
+                        </a>
+                        <a href="https://youtube.com/yetenbitours" target="_blank" rel="noopener noreferrer" class="social-icon me-2">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Copyright -->
+                <div class="col-md-6 text-md-end">
+                    <div class="footer-copyright">
+                        <p class="mb-0">&copy; <span id="current-year">2025</span> Yetenbi Ethiopia Tours. All Rights Reserved.</p>
+                        <div class="footer-legal mt-2">
+                            <a href="#" class="text-decoration-none me-3">Privacy Policy</a>
+                            <a href="#" class="text-decoration-none me-3">Terms of Service</a>
+                            <a href="#" class="text-decoration-none">FAQ</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Back to Top Button -->
+<a href="#" class="btn btn-primary back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+</a>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Update copyright year automatically
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+    // Back to top button
+    window.addEventListener('scroll', function() {
+        var backToTop = document.querySelector('.back-to-top');
+        if (window.pageYOffset > 300) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+    });
+</script>
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/251913271706" class="whatsapp-float" target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
