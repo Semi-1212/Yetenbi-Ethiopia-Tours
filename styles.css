@@ -2002,3 +2002,376 @@ body {
         font-size: 25px;
     }
 }
+
+:root {
+    --red: #e63946;
+    --white: #ffffff;
+    --dark-blue: #1d3557;
+    --light-blue: #a8dadc;
+    --transition: all 0.3s ease;
+}
+
+/* Modal Overlay - Initially Hidden */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+/* Booking Card */
+.booking-card {
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(29, 53, 87, 0.25);
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    overflow-y: auto;
+    transform: scale(0.9);
+    transition: var(--transition);
+}
+
+.modal-overlay.active .booking-card {
+    transform: scale(1);
+}
+
+/* Header */
+.booking-header {
+    margin-bottom: 25px;
+}
+
+.booking-title {
+    color: var(--dark-blue);
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.booking-subtitle {
+    color: var(--red);
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* Form Elements */
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    transition: var(--transition);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+}
+
+.booking-form label {
+    color: var(--dark-blue);
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+    padding: 14px 18px;
+    border: 2px solid var(--light-blue);
+    border-radius: 10px;
+    font-size: 15px;
+    transition: var(--transition);
+    background-color: #f8f9fa;
+    width: 100%;
+}
+
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus {
+    outline: none;
+    border-color: var(--red);
+    box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.25);
+    background-color: var(--white);
+}
+
+.booking-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Select Wrapper */
+.select-wrapper {
+    position: relative;
+}
+
+.select-icon {
+    position: absolute;
+    right: 15px;
+    top: 40px;
+    font-size: 18px;
+    pointer-events: none;
+}
+
+/* Submit Button */
+.submit-btn {
+    background: var(--red);
+    color: var(--white);
+    border: none;
+    padding: 16px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.submit-btn:hover {
+    background: #c1121f;
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(230, 57, 70, 0.4);
+}
+
+.submit-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Spinner */
+.spinner {
+    display: none;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid var(--white);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Confirmation Screen */
+.confirmation-mockup {
+    display: none;
+    text-align: center;
+    padding: 20px 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: var(--transition);
+}
+
+.confirmation-mockup.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.confirmation-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+    background: var(--red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulse 1.5s infinite;
+}
+
+.confirmation-icon svg {
+    width: 30px;
+    height: 30px;
+    fill: var(--white);
+}
+
+.confirmation-mockup h2 {
+    color: var(--dark-blue);
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.confirmation-mockup p {
+    color: var(--dark-blue);
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.confirmation-details {
+    margin: 20px 0;
+    text-align: left;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--light-blue);
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-label {
+    color: var(--dark-blue);
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.detail-value {
+    color: var(--red);
+    font-weight: 500;
+    text-align: right;
+    max-width: 60%;
+    word-break: break-word;
+}
+
+/* Back Button */
+.back-to-form {
+    background: var(--dark-blue);
+    color: var(--white);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px auto 0;
+    transition: var(--transition);
+}
+
+.back-to-form:hover {
+    background: #162a44;
+    transform: scale(1.02);
+}
+
+.back-to-form svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--white);
+}
+
+/* Close Button */
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--dark-blue);
+    transition: var(--transition);
+}
+
+.close-modal:hover {
+    color: var(--red);
+    transform: rotate(90deg);
+}
+
+/* Book Now Button */
+.book-now-btn {
+    background: var(--red);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.book-now-btn:hover {
+    background: #c1121f;
+    transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(230, 57, 70, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(230, 57, 70, 0); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    .booking-card {
+        padding: 25px 15px;
+        max-width: 95%;
+    }
+
+    .booking-title {
+        font-size: 24px;
+    }
+
+    .booking-subtitle {
+        font-size: 14px;
+    }
+
+    .booking-form input,
+    .booking-form select,
+    .booking-form textarea {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+
+    .submit-btn {
+        padding: 14px;
+        font-size: 15px;
+    }
+
+    .confirmation-mockup h2 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 400px) {
+    .booking-title {
+        font-size: 22px;
+    }
+
+    .detail-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .detail-value {
+        max-width: 100%;
+        text-align: left;
+    }
+}

@@ -1,7 +1,4 @@
 
-
-// for blog section
-
 document.addEventListener('DOMContentLoaded', function() {
     // Handle Read More/Less buttons
     const readMoreBtns = document.querySelectorAll('.read-more-btn');
